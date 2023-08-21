@@ -1,0 +1,310 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"host": {
+			"projectType": "application",
+			"schematics": {},
+			"root": "projects/host",
+			"sourceRoot": "projects/host/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/host",
+						"index": "projects/host/src/index.html",
+						"main": "projects/host/src/main.ts",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/host/tsconfig.app.json",
+						"assets": [
+							"projects/host/src/favicon.ico",
+							"projects/host/src/assets"
+						],
+						"styles": [
+							"projects/host/src/styles.css"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/host/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/host/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "host:build:production",
+							"extraWebpackConfig": "projects/host/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "host:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 3000,
+						"publicHost": "http://localhost:3000",
+						"extraWebpackConfig": "projects/host/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "host:build",
+						"extraWebpackConfig": "projects/host/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/host/tsconfig.spec.json",
+						"assets": [
+							"projects/host/src/favicon.ico",
+							"projects/host/src/assets"
+						],
+						"styles": [
+							"projects/host/src/styles.css"
+						],
+						"scripts": []
+					}
+				}
+			}
+		},
+		"todo": {
+			"projectType": "application",
+			"schematics": {},
+			"root": "projects/todo",
+			"sourceRoot": "projects/todo/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/todo",
+						"index": "projects/todo/src/index.html",
+						"main": "projects/todo/src/main.ts",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/todo/tsconfig.app.json",
+						"assets": [
+							"projects/todo/src/favicon.ico",
+							"projects/todo/src/assets"
+						],
+						"styles": [
+							"projects/todo/src/styles.css"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/todo/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/todo/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "todo:build:production",
+							"extraWebpackConfig": "projects/todo/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "todo:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 3001,
+						"publicHost": "http://localhost:3001",
+						"extraWebpackConfig": "projects/todo/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "todo:build",
+						"extraWebpackConfig": "projects/todo/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/todo/tsconfig.spec.json",
+						"assets": [
+							"projects/todo/src/favicon.ico",
+							"projects/todo/src/assets"
+						],
+						"styles": [
+							"projects/todo/src/styles.css"
+						],
+						"scripts": []
+					}
+				}
+			}
+		},
+		"todolist": {
+			"projectType": "application",
+			"schematics": {},
+			"root": "projects/todolist",
+			"sourceRoot": "projects/todolist/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/todolist",
+						"index": "projects/todolist/src/index.html",
+						"main": "projects/todolist/src/main.ts",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/todolist/tsconfig.app.json",
+						"assets": [
+							"projects/todolist/src/favicon.ico",
+							"projects/todolist/src/assets"
+						],
+						"styles": [
+							"projects/todolist/src/styles.css"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/todolist/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/todolist/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "todolist:build:production",
+							"extraWebpackConfig": "projects/todolist/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "todolist:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 3002,
+						"publicHost": "http://localhost:3002",
+						"extraWebpackConfig": "projects/todolist/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "todolist:build",
+						"extraWebpackConfig": "projects/todolist/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/todolist/tsconfig.spec.json",
+						"assets": [
+							"projects/todolist/src/favicon.ico",
+							"projects/todolist/src/assets"
+						],
+						"styles": [
+							"projects/todolist/src/styles.css"
+						],
+						"scripts": []
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,38 @@
+/* src/app/navbar/navbar.component.css */
+.navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #333;
+    width: 120px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+  
+  .navbar li {
+    padding: 10px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .navbar li.selected {
+    background-color: #555;
+  }
+  /* src/app/app.component.css */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .centered-content {
+    text-align: center;
+    max-width: 800px; /* Oder jede andere gewünschte maximale Breite */
+    width: 100%;
+    padding: 20px;
+  }
+  
